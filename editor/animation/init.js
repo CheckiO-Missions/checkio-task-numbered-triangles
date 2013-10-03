@@ -77,13 +77,10 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             }
             //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            if (explanation.length !== 0) {
+                var canvas = new NumberedTrianglesCanvas($content.find(".explanation")[0]);
+                canvas.createCanvas(explanation);
+            }
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -108,10 +105,51 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
         var colorGrey1 = "#EBEDED";
 
         var colorWhite = "#FFFFFF";
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
+
+
+        function NumberedTrianglesCanvas(dom) {
+            var size = 150;
+            var edgeWidth = 5;
+            var fontSize = size * 0.15;
+
+            var fullSizeX = size * 2;
+            var fullSizeY = size * 2 * Math.sin(Math.PI / 3);
+
+            var paper = Raphael(dom, fullSizeX, fullSizeY, 0, 0);
+
+            var attrTri = {"stroke": colorBlue4, "stroke-width": edgeWidth, "fill": colorBlue1, "stroke-linejoin": "round"};
+            var attrNumb = {"stroke": colorBlue4, "fill": colorBlue4, "font-size": fontSize, "font-family": "verdana", "font-weight": "bold"};
+            var attrNumbEdge = {"stroke": colorOrange4, "fill": colorOrange4, "font-size": fontSize, "font-family": "verdana", "font-weight": "bold"};
+
+            this.createCanvas = function(chips) {
+                for (var i = 0; i < 6; i++) {
+                    var chip = paper.set();
+                    paper.path(Raphael.format(
+                        "M{0},{1}L{2},{3}H{4}Z",
+                        fullSizeX / 2,
+                        fullSizeY / 2,
+                        size / 2,
+                        fullSizeY,
+                        size * 1.5
+                    )).attr(attrTri).rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    var innerR = Math.tan(Math.PI / 6) * size / 2;
+                    var numbUpper = fontSize / 2 + edgeWidth;
+                    paper.text(fullSizeX / 2, fullSizeY - (numbUpper), chips[i][0]).attr(attrNumbEdge).rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    var numb1 = paper.text(
+                        fullSizeX / 2 - (innerR - numbUpper) * Math.cos(Math.PI / 6),
+                        fullSizeY - (numbUpper + (innerR - numbUpper) * (Math.cos(Math.PI / 3) + 1)),
+                        chips[i][1]).attr(attrNumb);
+                    numb1.rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    numb1.rotate(120);
+                    var numb2 = paper.text(
+                        fullSizeX / 2 + (innerR - numbUpper) * Math.cos(Math.PI / 6),
+                        fullSizeY - (numbUpper + (innerR - numbUpper) * (Math.cos(Math.PI / 3) + 1)),
+                        chips[i][2]).attr(attrNumb);
+                    numb2.rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    numb2.rotate(-120);
+                }
+            }
+        }
 
 
     }
