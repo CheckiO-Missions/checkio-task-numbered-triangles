@@ -131,21 +131,21 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                         size / 2,
                         fullSizeY,
                         size * 1.5
-                    )).attr(attrTri).rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    )).attr(attrTri).rotate(-60 * i, fullSizeX / 2, fullSizeY / 2);
                     var innerR = Math.tan(Math.PI / 6) * size / 2;
                     var numbUpper = fontSize / 2 + edgeWidth;
-                    paper.text(fullSizeX / 2, fullSizeY - (numbUpper), chips[i][0]).attr(attrNumbEdge).rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    paper.text(fullSizeX / 2, fullSizeY - (numbUpper), chips[i][0]).attr(attrNumbEdge).rotate(-60 * i, fullSizeX / 2, fullSizeY / 2);
                     var numb1 = paper.text(
                         fullSizeX / 2 - (innerR - numbUpper) * Math.cos(Math.PI / 6),
                         fullSizeY - (numbUpper + (innerR - numbUpper) * (Math.cos(Math.PI / 3) + 1)),
                         chips[i][1]).attr(attrNumb);
-                    numb1.rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    numb1.rotate(-60 * i, fullSizeX / 2, fullSizeY / 2);
                     numb1.rotate(120);
                     var numb2 = paper.text(
                         fullSizeX / 2 + (innerR - numbUpper) * Math.cos(Math.PI / 6),
                         fullSizeY - (numbUpper + (innerR - numbUpper) * (Math.cos(Math.PI / 3) + 1)),
                         chips[i][2]).attr(attrNumb);
-                    numb2.rotate(60 * i, fullSizeX / 2, fullSizeY / 2);
+                    numb2.rotate(-60 * i, fullSizeX / 2, fullSizeY / 2);
                     numb2.rotate(-120);
                 }
             }
