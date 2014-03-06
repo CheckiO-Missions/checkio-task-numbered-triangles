@@ -1,10 +1,12 @@
 <p>
-    Our robots like a game that requires the ability to calculate.  Mission control recently sent them an new game to occupy their minds while flying from on eIsland to the next. This game is called ""Numbered Triangles".
-    In the game, a player takes 6 chips from the pile. Each chip is made from an equilateral triangle with three numbers on the edges.
+    Our robots like games that require the ability to calculate.
+    Mission control recently sent them the new game to occupy their minds while flying from one Island to the next.
+    This game is called "Numbered Triangles".
+    In the game, a player takes 6 chips from the pile.
+    Each chip is made from an equilateral triangle with three numbers on the edges.
 
     You can move, rotate and flip the chips so they form a hexagon.
     The hexagon is <strong>only legal</strong> if adjacent edges for each triangle have the same number.
-    <!--You may not flip any triangle over.-->
 </p>
 
 <p>
@@ -13,21 +15,29 @@
 </p>
 
 <p style="text-align: center;">
-    <img class="for_info_only" title="numbered-triangles" src="{{MEDIA}}numbered-triangles.png" alt="numbered-triangles" width="600px"/>
-    <img class="for_editor_only" title="numbered-triangles" src="{{MEDIA}}numbered-triangles.png" alt="numbered-triangles" width="380px"/>
+    <img class="for_info_only"
+         title="numbered-triangles"
+         src="{{MEDIA}}numbered-triangles.png"
+         alt="numbered-triangles"
+         width="600px"/>
+    <img class="for_editor_only"
+         title="numbered-triangles"
+         src="{{MEDIA}}numbered-triangles.png"
+         alt="numbered-triangles"
+         width="380px"/>
 </p>
 
 <p>
-    Each chip is represented as a list with three natural numbers.
+    Each chip is represented as a list with three positive numbers.
     You should help the robots to find the highest score for the given chips and return it as a number.
     If you cannot form legal hexagon from the chips, then return 0.
 </p>
 <p>
-    <strong>Input: </strong> The chips' info. A list of lists. Each list contain three natural numbers (int).
+    <strong>Input: </strong> The chips' info. A list of lists. Each list contain three integers.
 </p>
 
 <p>
-    <strong>Output: </strong> The highest possible score (int).
+    <strong>Output: </strong> The highest possible score, as an integer.
 </p>
 
 
@@ -49,5 +59,12 @@ checkio([[5, 9, 5], [9, 6, 9], [6, 7, 6],
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Optimization software. Constraints problems. Game mechanics.
+    This concept is used in optimization systems,
+    because you have constraints but you should get the maximum from these constraints.
+    And of course this algorithms can be useful for the realisation of game mechanics.
+</p>
+
+<p>
+    <strong>Precondition:</strong> |chips| = 6<br>
+    &forall; x ∈ data : 0 &lt; x &lt; 100
 </p>
