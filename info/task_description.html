@@ -63,6 +63,7 @@ checkio([[5, 9, 5], [9, 6, 9], [6, 7, 6],
 </p>
 
 <p>
-    <strong>Precondition:</strong> |chips| = 6<br>
-    &forall; x ∈ data : 0 &lt; x &lt; 100
+    <strong>Precondition:</strong><br>
+    len(chips) == 6<br>
+    all(all(0 &lt; x &lt; 100 for x in ch) for ch in chips)
 </p>
