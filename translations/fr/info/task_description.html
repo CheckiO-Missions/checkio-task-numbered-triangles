@@ -1,0 +1,70 @@
+<p>
+    Nos robots aiment les jeux qui demandent la faculté de résoudre des équations.
+    Le directeur de mission vient de leur envoyer un nouveau jeu pour les occuper durant les trajets d'île en île.
+    Ce jeu s'appelle "Triangles numérotés".
+    Les joueurs prennent 6 jetons sur la pile ; chaque jeton est un  triangle équilatéral qui porte trois nombres, un par côté.
+    On peut bouger, pivoter et retourner les jetons de façon à former un hexagone.
+    L'hexagone est <strong>accepté</strong> uniquement si les côtés adjacents de deux triangles contigüs portent le même numéro.
+</p>
+
+<p>
+    Le score, pour un hexagone accepté, est la somme des nombres des côtés extérieurs.
+    L'objectif du joueur est de déterminer le meilleur score que l'on puisse obtenir avec six jetons imposés.
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only"
+         title="numbered-triangles"
+         src="{{MEDIA}}numbered-triangles.png"
+         alt="numbered-triangles"
+         width="600px"/>
+    <img class="for_editor_only"
+         title="numbered-triangles"
+         src="{{MEDIA}}numbered-triangles.png"
+         alt="numbered-triangles"
+         width="380px"/>
+</p>
+
+<p>
+    Chaque jeton est représenté par une liste de trois nombres entiers naturels non nuls.
+    Il vous faut aider les robots à déterminer le meilleur score possible pour le jeu de six jetons donné,
+    et retourner le score en tant que nombre entier (int).
+    Si l'on ne peut constituer aucun hexagone acceptable avec le jeu de jetons fourni, alors retourner le score de 0.
+</p>
+<p>
+    <strong>Input: </strong>Le jeu de six jetons, comme liste (list) de listes (list) de trois entiers (int). 
+</p>
+
+<p>
+    <strong>Output: </strong>Le meilleur score possible, comme entier (int).
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+<pre class="brush: python">checkio([[1, 4, 20], [3, 1, 5], [50, 2, 3],
+         [5, 2, 7], [7, 5, 20], [4, 7, 50]]) == 152
+checkio([[1, 10, 2], [2, 20, 3], [3, 30, 4],
+         [4, 40, 5], [5, 50, 6], [6, 60, 1]]) == 210
+checkio([[1, 2, 3], [2, 1, 3], [4, 5, 6],
+         [6, 5, 4], [5, 1, 2], [6, 4, 3]]) == 21
+checkio([[5, 9, 5], [9, 6, 9], [6, 7, 6],
+         [7, 8, 7], [8, 1, 8], [1, 2, 1]]) == 0
+
+</pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Application: </strong>
+    Ce concept est utilisé en optimisation : des constraintes sont imposées, 
+    et il faut obtenir le meilleur résultat sous ces contraintes.
+    Cet algorithme est évidemment utile pour réaliser des automates de jeu.
+</p>
+
+<p>
+    <strong>Precondition:</strong><br>
+    len(chips) == 6<br>
+    all(all(0 &lt; x &lt; 100 for x in ch) for ch in chips)
+</p>
